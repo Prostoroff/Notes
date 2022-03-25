@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="tL0-V1-EgC" detailTextLabel="mr0-ac-Pz0" style="IBUITableViewCellStyleSubtitle" id="R0r-5h-l0s">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="tL0-V1-EgC" style="IBUITableViewCellStyleDefault" id="R0r-5h-l0s">
                                 <rect key="frame" x="0.0" y="44.5" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R0r-5h-l0s" id="ACr-9g-kAK">
@@ -26,16 +26,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tL0-V1-EgC">
-                                            <rect key="frame" x="16" y="6" width="25" height="14.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mr0-ac-Pz0">
-                                            <rect key="frame" x="16" y="22.5" width="40.5" height="13.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -60,20 +53,20 @@
             </objects>
             <point key="canvasLocation" x="-226" y="159"/>
         </scene>
-        <!--View Controller-->
+        <!--New Note View Controller-->
         <scene sceneID="2iJ-aJ-JJE">
             <objects>
-                <viewController id="Gz0-Pj-7Eq" sceneMemberID="viewController">
+                <viewController id="Gz0-Pj-7Eq" customClass="NewNoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oBj-bp-wdQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W51-JH-Uy8">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="16" y="44" width="343" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" keyboardType="namePhonePad" returnKeyType="done"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="y2h-C8-ZaE"/>
@@ -81,13 +74,21 @@
                         <constraints>
                             <constraint firstItem="W51-JH-Uy8" firstAttribute="top" secondItem="y2h-C8-ZaE" secondAttribute="top" id="EHH-Lf-r7I"/>
                             <constraint firstItem="y2h-C8-ZaE" firstAttribute="bottom" secondItem="W51-JH-Uy8" secondAttribute="bottom" id="HLf-l1-CFy"/>
-                            <constraint firstItem="W51-JH-Uy8" firstAttribute="leading" secondItem="y2h-C8-ZaE" secondAttribute="leading" id="ZE6-Wt-uxf"/>
-                            <constraint firstItem="y2h-C8-ZaE" firstAttribute="trailing" secondItem="W51-JH-Uy8" secondAttribute="trailing" id="npw-k2-TIj"/>
+                            <constraint firstItem="W51-JH-Uy8" firstAttribute="leading" secondItem="y2h-C8-ZaE" secondAttribute="leading" constant="16" id="ZE6-Wt-uxf"/>
+                            <constraint firstItem="y2h-C8-ZaE" firstAttribute="trailing" secondItem="W51-JH-Uy8" secondAttribute="trailing" constant="16" id="npw-k2-TIj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="GgI-D2-bLv">
-                        <barButtonItem key="rightBarButtonItem" title="Готово" id="tXm-WH-0P6"/>
+                        <barButtonItem key="rightBarButtonItem" title="Готово" id="tXm-WH-0P6">
+                            <connections>
+                                <action selector="doneButtonAction:" destination="Gz0-Pj-7Eq" id="GFJ-3Y-2VT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navigationBar" destination="GgI-D2-bLv" id="1pg-T1-rUw"/>
+                        <outlet property="textView" destination="W51-JH-Uy8" id="xLx-yj-sJv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzB-e6-rU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
