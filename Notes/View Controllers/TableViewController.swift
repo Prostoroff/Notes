@@ -9,12 +9,6 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let newNoteVC = segue.destination as? NewNoteViewController else { return }
-//        newNoteVC.delegate = self
-//    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -36,7 +30,22 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = Base.shared.notes[indexPath.row].text
         
         return cell
-    }    
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "") { (_, _, completionHandler) in
+            Base.shared.notes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        deleteAction.image = UIImage(systemName: "trash")
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    
 }
 
 
