@@ -1,15 +1,16 @@
 //
-//  NewNoteViewController.swift
+//  EditNoteViewController.swift
 //  Notes
 //
-//  Created by Иван Осипов on 24/3/22.
+//  Created by Иван Осипов on 26/3/22.
 //
 
 import UIKit
 
-class NewNoteViewController: UIViewController {
+class EditNoteViewController: UIViewController {
     @IBOutlet var textView: UITextView!
-    @IBOutlet var navigationBar: UINavigationItem!
+    
+    var index: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +21,12 @@ class NewNoteViewController: UIViewController {
         textView.keyboardType = .default
         textView.returnKeyType = .continue
         textView.autocapitalizationType = .sentences
+        textView.text = Base.shared.notes[index].text
     }
     
     @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {
         textView.resignFirstResponder()
-        Base.shared.saveNote(text: textView.text)
+        Base.shared.notes[index].text = textView.text
         navigationController?.popViewController(animated: true)
     }
 }

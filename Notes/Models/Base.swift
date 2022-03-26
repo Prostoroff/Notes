@@ -12,7 +12,7 @@ class Base {
     static let shared = Base()
     
     struct Note: Codable {
-        let text: String
+        var text: String
     }
     
     var notes: [Note] {

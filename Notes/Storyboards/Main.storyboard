@@ -35,7 +35,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Gz0-Pj-7Eq" kind="show" id="QOF-gI-PhN"/>
+                                    <segue destination="u3z-Bz-CJv" kind="show" id="plX-rh-EDV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -55,6 +55,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwj-Zs-vpe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-226" y="159"/>
+        </scene>
+        <!--Edit Note View Controller-->
+        <scene sceneID="2X1-3J-xKK">
+            <objects>
+                <viewController id="u3z-Bz-CJv" customClass="EditNoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Xw-xe-Q3r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-oo-2cD">
+                                <rect key="frame" x="16" y="44" width="343" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MYB-a7-Z3M"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nQG-oo-2cD" firstAttribute="top" secondItem="MYB-a7-Z3M" secondAttribute="top" id="3T8-8g-GnT"/>
+                            <constraint firstItem="MYB-a7-Z3M" firstAttribute="bottom" secondItem="nQG-oo-2cD" secondAttribute="bottom" id="SIt-mZ-SE3"/>
+                            <constraint firstItem="MYB-a7-Z3M" firstAttribute="trailing" secondItem="nQG-oo-2cD" secondAttribute="trailing" constant="16" id="owh-S0-uFD"/>
+                            <constraint firstItem="nQG-oo-2cD" firstAttribute="leading" secondItem="MYB-a7-Z3M" secondAttribute="leading" constant="16" id="pW0-z6-HE4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="hFg-jF-SLI">
+                        <barButtonItem key="rightBarButtonItem" title="Готово" id="Ssb-ua-zPL">
+                            <connections>
+                                <action selector="doneButtonAction:" destination="u3z-Bz-CJv" id="x6A-i1-qhk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="nQG-oo-2cD" id="QZj-19-vTt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l04-Nn-dEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577" y="536"/>
         </scene>
         <!--New Note View Controller-->
         <scene sceneID="2iJ-aJ-JJE">
@@ -95,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzB-e6-rU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613.60000000000002" y="158.77061469265368"/>
+            <point key="canvasLocation" x="577" y="-224"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="10h-HD-1nw">
@@ -114,9 +154,6 @@
             <point key="canvasLocation" x="-1099" y="159"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="QOF-gI-PhN"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
