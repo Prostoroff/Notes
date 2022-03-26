@@ -18,6 +18,11 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let newNoteVC = segue.destination as? NewNoteViewController
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        newNoteVC?.note = Base.shared.notes[indexPath.row]
+    }
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

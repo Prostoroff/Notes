@@ -11,6 +11,8 @@ class NewNoteViewController: UIViewController {
     @IBOutlet var textView: UITextView!
     @IBOutlet var navigationBar: UINavigationItem!
     
+    var note: Base.Note?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +22,7 @@ class NewNoteViewController: UIViewController {
         textView.keyboardType = .default
         textView.returnKeyType = .continue
         textView.autocapitalizationType = .sentences
+        textView.text = note?.text ?? ""
         
     }
     @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {

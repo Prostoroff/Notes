@@ -32,7 +32,9 @@ class Base {
     
     func saveNote(text: String) {
         let note = Note(text: text)
-        notes.insert(note, at: 0)
+        if !note.text.isEmpty {
+            notes.insert(note, at: 0)
+        }
     }
 }
 
