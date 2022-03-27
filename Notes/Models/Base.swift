@@ -20,7 +20,7 @@ class Base {
             if let data = defaults.value(forKey: "notes") as? Data {
                 return try! PropertyListDecoder().decode([Note].self, from: data)
             } else {
-                return [Note]()
+                return [Note(text: "Первая заметка. Что бы удалить, сделайте свайп вправо")]
             }
         }
         set {
