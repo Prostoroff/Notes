@@ -24,7 +24,7 @@ class NewNoteViewController: UIViewController {
     
     @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {
         textView.resignFirstResponder()
-        Base.shared.saveNote(text: textView.text)
+//        Base.shared.saveNote(text: textView.text)
         navigationController?.popViewController(animated: true)
     }
 }

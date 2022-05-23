@@ -21,12 +21,12 @@ class EditNoteViewController: UIViewController {
         textView.keyboardType = .default
         textView.returnKeyType = .continue
         textView.autocapitalizationType = .sentences
-        textView.text = Base.shared.notes[index].text
+//        textView.text = Base.shared.notes[index].text
     }
     
     @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {
         textView.resignFirstResponder()
-        Base.shared.notes[index].text = textView.text
+//        Base.shared.notes[index].text = textView.text
         navigationController?.popViewController(animated: true)
     }
 }
